@@ -1,0 +1,24 @@
+<h1>id: <%= @micropost.id %>の詳細ページ</h1>
+
+<p><%= @micropost.content %></p>
+
+    <table class= "table table-striped">
+        <tr>
+            <th>id</th>
+            <td><%= @micropost.id %></td>
+        </tr>
+        
+        <tr>
+            <th>タイトル</th>
+            <td><%= @micropost.title %></td>
+        </tr>
+        
+        <tr>
+            <th>メッセージ</th>
+            <td><%= @micropost.content %></td>
+        </tr>
+    </table>
+    
+    <%= link_to 'メッセージ一覧に戻る', root_path, class: 'btn btn-primary' %>
+    <%= link_to 'このメッセージを編集する', edit_micropost_path(@micropost), class: 'btn btn-default' %>
+    <%= link_to 'このメッセージを削除する', @micropost, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }, class: 'btn btn-danger' %>

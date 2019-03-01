@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   
   private
   
-  def login(email,password)
+  def login(email, password)
     @user = User.find_by(email: email)
     
     if @user && @user.authenticate(password)

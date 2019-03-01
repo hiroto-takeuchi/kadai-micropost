@@ -1,0 +1,29 @@
+<h1>Micropostの一覧</h1>
+
+<% if @micropost.any %>
+<table class= "table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>タイトル</th>
+            <th>メッセージ</th>
+        </tr>
+    </thead>
+    <% end %>
+    
+    <tbody>
+        <% @microposts.each do |micropost| %>
+            <tr>
+                <th><%= link_to micropost.id, micropost %></th>
+                <th><%= micropost.title %></th>
+                <th><%= micropost.content %></th>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<div>
+    <%= pagenate @micropost %>
+</div>
+
+<%= link_to '新規メッセージの投稿',new_micropost_path, class: 'btn btn-primary' %>
