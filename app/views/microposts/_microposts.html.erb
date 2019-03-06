@@ -16,9 +16,15 @@
           <p><%= micropost.content %></p>
         </div>
         <div>
+          
+            
           <% if current_user == micropost.user %>
             <%= link_to "Edit", edit_micropost_path(micropost), class:'btn btn-primary btn-xs' %>
             <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
+          <% end %>
+          <% if current_user != micropost.user %>
+          
+            <%= render 'connections/like_button', micropost: micropost %>
           <% end %>
         </div>
       </div>
